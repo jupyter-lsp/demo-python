@@ -1,4 +1,4 @@
-name: jupyterlab-lsp
+name: jupyterlab-lsp-python
 
 channels:
   - conda-forge
@@ -11,10 +11,14 @@ dependencies:
   - jupyter_server >=1.1.2
   - retrolab >=0.2.0,<0.3
   - jupyterlab-lsp
+  # for python language server
+  - python-lsp-server
+  - flake8 >=3.5
   - pip
-  # for R language server and kernel
-  - r
-  - r-irkernel
-  - r-languageserver
-  # using R from Python
-  - rpy2
+  - pylint
+  # pyls-black was not migrated to pylsp yet
+  # - pyls-black
+  # pyls-isort already migrated to pylsp but there is no point enabling
+  # it right now as we do not support actions support yet (PRs welcome)
+  # - pyls-isort
+  - pylsp-mypy
